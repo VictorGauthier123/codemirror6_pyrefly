@@ -1,0 +1,12 @@
+.editor-container {
+  border: 1px solid #ddd;
+  height: 400px;
+}
+
+:host ::ng-deep .cm-editor {
+  height: 100%;
+}
+
+:host ::ng-deep .cm-scroller {
+  font-family: monospace;
+}
