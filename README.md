@@ -9,9 +9,9 @@ Le projet contient :
 
 ## Fichiers intéressants
 
-- [frontend/src/app/editor/editor.ts](/Users/victorgauthier/dev/dev_test/codemirror6/frontend/src/app/editor/editor.ts) : configuration principale de l'éditeur CodeMirror.
-- [backend/main.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/main.py) : API FastAPI et endpoint de complétion.
-- [backend/pyrefly.toml](/Users/victorgauthier/dev/dev_test/codemirror6/backend/pyrefly.toml) : configuration liée à Pyrefly. (pas encore configuré)
+- [frontend/src/app/editor/editor.ts](frontend/src/app/editor/editor.ts) : configuration principale de l'éditeur CodeMirror.
+- [backend/main.py](backend/main.py) : API FastAPI et endpoint de complétion.
+- [backend/pyrefly.toml](codemirror6/backend/pyrefly.toml) : configuration liée à Pyrefly. (pas encore configuré)
 
 
 ## Lancer le projet
