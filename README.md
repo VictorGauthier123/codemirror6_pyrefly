@@ -17,12 +17,11 @@ Aujourd'hui, l'éditeur :
 
 ## Fichiers intéressants
 
-- [frontend/src/app/editor/editor.ts](/Users/victorgauthier/dev/dev_test/codemirror6/frontend/src/app/editor/editor.ts) : configuration CodeMirror et client LSP.
-- [backend/main.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/main.py) : serveur FastAPI et endpoint WebSocket `/lsp`.
-- [backend/pyrefly_lsp.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/pyrefly_lsp.py) : pont entre WebSocket et processus `pyrefly`.
-- [backend/test.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/test.py) : petit script manuel pour tester `pyrefly` en direct.
-- [backend/pyrefly.toml](/Users/victorgauthier/dev/dev_test/codemirror6/backend/pyrefly.toml) : configuration `pyrefly`.
-- [backend/requirements.txt](/Users/victorgauthier/dev/dev_test/codemirror6/backend/requirements.txt) : dépendances Python du backend.
+- [frontend/src/app/editor/editor.ts](frontend/src/app/editor/editor.ts) : configuration CodeMirror et client LSP.
+- [backend/main.py](backend/main.py) : serveur FastAPI et endpoint WebSocket `/lsp`.
+- [backend/pyrefly_lsp.py](backend/pyrefly_lsp.py) : pont entre WebSocket et processus `pyrefly`.
+- [backend/test.py](backend/test.py) : petit script manuel pour tester `pyrefly` en direct.
+- [backend/pyrefly.toml](backend/pyrefly.toml) : configuration `pyrefly`.
 
 ## Lancer le projet
 
