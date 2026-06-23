@@ -1,18 +1,28 @@
-# CodeMirror 6 IDE Demo
+# CodeMirror 6 + Pyrefly IDE Demo
 
-Petit prototype d'IDE web basé sur CodeMirror 6.
+Petit prototype d'IDE web Python basé sur CodeMirror 6.
 
 Le projet contient :
-- un frontend Angular avec un éditeur Python CodeMirror 6 ;
+- un frontend Angular avec CodeMirror 6 ;
 - un backend FastAPI ;
-- un endpoint de complétion Python simple, prévu comme base avant une intégration LSP plus complète avec Pyrefly.
+- une connexion WebSocket LSP vers `pyrefly` via `@codemirror/lsp-client`.
+
+## Ce que fait le projet
+
+Aujourd'hui, l'éditeur :
+- ouvre un buffer Python ;
+- se connecte au backend en WebSocket sur `/lsp` ;
+- relaye les messages LSP vers `pyrefly` ;
+- récupère l'autocomplétion via `pyrefly`.
 
 ## Fichiers intéressants
 
-- [frontend/src/app/editor/editor.ts](frontend/src/app/editor/editor.ts) : configuration principale de l'éditeur CodeMirror.
-- [backend/main.py](backend/main.py) : API FastAPI et endpoint de complétion.
-- [backend/pyrefly.toml](codemirror6/backend/pyrefly.toml) : configuration liée à Pyrefly. (pas encore configuré)
-
+- [frontend/src/app/editor/editor.ts](/Users/victorgauthier/dev/dev_test/codemirror6/frontend/src/app/editor/editor.ts) : configuration CodeMirror et client LSP.
+- [backend/main.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/main.py) : serveur FastAPI et endpoint WebSocket `/lsp`.
+- [backend/pyrefly_lsp.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/pyrefly_lsp.py) : pont entre WebSocket et processus `pyrefly`.
+- [backend/test.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/test.py) : petit script manuel pour tester `pyrefly` en direct.
+- [backend/pyrefly.toml](/Users/victorgauthier/dev/dev_test/codemirror6/backend/pyrefly.toml) : configuration `pyrefly`.
+- [backend/requirements.txt](/Users/victorgauthier/dev/dev_test/codemirror6/backend/requirements.txt) : dépendances Python du backend.
 
 ## Lancer le projet
 
@@ -30,14 +40,16 @@ Le frontend démarre sur `http://localhost:4200`.
 
 ```bash
 cd backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
 Le backend démarre sur `http://localhost:8000`.
 
-## État actuel
+## Notes
 
-Aujourd'hui :
-- l'éditeur affiche un buffer Python dans CodeMirror 6 ;
-- l'autocomplétion passe par un `fetch` du frontend vers le backend ;
-- l'intégration LSP/Pyrefly reste à brancher.
+- `pyrefly` doit être installé dans l'environnement Python du backend.
+- Le frontend utilise maintenant `@codemirror/lsp-client`, plus le vieux provider `fetch` pour l'autocomplete.
+- Le fichier [backend/test.py](/Users/victorgauthier/dev/dev_test/codemirror6/backend/test.py) permet de tester rapidement que `pyrefly lsp` répond bien.
